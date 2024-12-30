@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+<body>
+    <!-- Search Section -->
+    <div class="search-container">
+        <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Start typing a card name..."
+            autocomplete="off">
+        <div id="search-results"></div>
+    </div>
+
+    <!-- Error Display -->
+    <div class="error-container"></div>
+
+    <!-- Card Preview & Edit Form -->
+    <div class="card-preview">
+        <img class="card-image" alt="Card preview">
+        <div class="form-container">
+            <form id="card-form">
+                <div class="form-grid">
+                    <div>
+                        <label for="card-name">Card Name:</label>
+                        <input type="text" id="card-name" maxlength="100" required>
+                    </div>
+                    <div>
+                        <label for="rarity">Rarity:</label>
+                        <select id="rarity" required>
+                            <option value="Common">Common</option>
+                            <option value="Uncommon">Uncommon</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Mythic Rare">Mythic Rare</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="type">Type:</label>
+                        <select id="type" required>
+                            <option value="Artifact">Artifact</option>
+                            <option value="Battle">Battle</option>
+                            <option value="Creature">Creature</option>
+                            <option value="Enchantment">Enchantment</option>
+                            <option value="Instant">Instant</option>
+                            <option value="Land">Land</option>
+                            <option value="Planeswalker">Planeswalker</option>
+                            <option value="Sorcery">Sorcery</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="identity">Color Identity:</label>
+                        <select id="identity" required></select>
+                    </div>
+                    <div>
+                        <label for="supertype">Supertype:</label>
+                        <select id="supertype">
+                            <option value="n/a">N/A</option>
+                            <option value="Basic">Basic</option>
+                            <option value="Legendary">Legendary</option>
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Snow">Snow</option>
+                            <option value="World">World</option>
+                        </select>
+                    </div>
+                    <!-- Subtypes -->
+                    <div>
+                        <label for="subtype1">Subtype 1:</label>
+                        <input type="text" id="subtype1">
+                    </div>
+                    <div>
+                        <label for="subtype2">Subtype 2:</label>
+                        <input type="text" id="subtype2">
+                    </div>
+                    <div>
+                        <label for="subtype3">Subtype 3:</label>
+                        <input type="text" id="subtype3">
+                    </div>
+                    <!-- Combat Abilities -->
+                    <div>
+                        <label for="ability1">Ability 1:</label>
+                        <select id="ability1"></select>
+                    </div>
+                    <div>
+                        <label for="ability2">Ability 2:</label>
+                        <select id="ability2"></select>
+                    </div>
+                    <div>
+                        <label for="ability3">Ability 3:</label>
+                        <select id="ability3"></select>
+                    </div>
+                    <div>
+                        <label for="ability4">Ability 4:</label>
+                        <select id="ability4"></select>
+                    </div>
+                    <div>
+                        <label for="ability5">Ability 5:</label>
+                        <select id="ability5"></select>
+                    </div>
+                    <!-- Mana Costs -->
+                    <div>
+                        <label for="converted-cost">Converted Mana Cost:</label>
+                        <input type="number" id="converted-cost" min="0" required>
+                    </div>
+                    <div>
+                        <label for="generic-mana">Generic Mana:</label>
+                        <input type="number" id="generic-mana" min="0" required>
+                    </div>
+                    <div>
+                        <label for="pip-count">Color Pip Count:</label>
+                        <input type="number" id="pip-count" min="0" required>
+                    </div>
+                    <!-- Color Pips -->
+                    <div>
+                        <label for="pip1">Pip 1:</label>
+                        <select id="pip1"></select>
+                    </div>
+                    <div>
+                        <label for="pip2">Pip 2:</label>
+                        <select id="pip2"></select>
+                    </div>
+                    <div>
+                        <label for="pip3">Pip 3:</label>
+                        <select id="pip3"></select>
+                    </div>
+                    <div>
+                        <label for="pip4">Pip 4:</label>
+                        <select id="pip4"></select>
+                    </div>
+                    <div>
+                        <label for="pip5">Pip 5:</label>
+                        <select id="pip5"></select>
+                    </div>
+                    <!-- Card Text -->
+                    <div class="full-width">
+                        <label for="card-text">Card Text:</label>
+                        <textarea id="card-text" maxlength="250" required></textarea>
+                    </div>
+                </div>
+                <button type="submit">Add Card</button>
+                <button type="button" id="cancel-card">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-container">
+        <h3>Processed Cards</h3>
+        <div class="processed-cards"></div>
+        <textarea 
+            id="sql-output" 
+            rows="10" 
+            readonly 
+            placeholder="SQL statements will appear here..."></textarea>
+        <button id="copy-sql">Copy All SQL</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
