@@ -1,4 +1,4 @@
-# MTG Stored Procedure Helper
+# Commander Tracker
 
 A simple web application to help generate SQL stored procedure calls for Magic: The Gathering cards using the Scryfall API.
 
